@@ -1,0 +1,23 @@
+.navigation {
+  background-color: var(--img-default-bg);
+  padding: 10px 20px;
+}
+
+.navigationList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 600px;
+}
+
+.navigationIcon {
+  width: 40px;
+  height: 40px;
+  fill: white;
+  transition: fill 250ms linear;
+}
+
+.link:hover .navigationIcon,
+.link:focus .navigationIcon {
+  fill: var(--btn-follow-bg-color);
+}

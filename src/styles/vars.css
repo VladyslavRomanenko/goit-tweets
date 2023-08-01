@@ -1,0 +1,12 @@
+:root {
+  --card-bg-color: linear-gradient(
+    142deg,
+    #471ca9 0%,
+    #5736a3 69.1%,
+    #4b2a99 100%
+  );
+  --btn-unfollow-bg-color: #ebd8ff;
+  --btn-follow-bg-color: #5cd3a8;
+  --img-default-bg: #5736a3;
+  --landing-button-text-color: #373737;
+}

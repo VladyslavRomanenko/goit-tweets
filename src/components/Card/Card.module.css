@@ -1,0 +1,63 @@
+.card {
+  width: 380px;
+  background: var(--card-bg-color);
+  padding: 28px 36px 36px;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoIcon {
+  width: 76px;
+  height: 22px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.tweetsImage {
+  width: 308px;
+  height: 168px;
+}
+
+.boyImage {
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+}
+
+.rectangle {
+  position: absolute;
+  width: 380px;
+}
+
+.tweets {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--btn-unfollow-bg-color);
+  margin: 26px 0px 16px;
+}
+
+.followers {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--btn-unfollow-bg-color);
+  margin-bottom: 26px;
+}
+
+.btnFollow {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--landing-button-text-color);
+  padding: 14px 28px;
+  border-radius: 10px;
+  width: 196px;
+  background-color: var(--btn-unfollow-bg-color);
+  cursor: pointer;
+}

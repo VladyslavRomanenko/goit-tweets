@@ -1,0 +1,32 @@
+.btn {
+  background-color: #fff;
+  margin: 20px;
+  padding: 5px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--btn-follow-bg-color);
+}
+
+.iconBtn {
+  fill: var(--img-default-bg);
+  width: 30px;
+  height: 30px;
+  transition: fill 250ms linear;
+}
+
+.btn:hover .iconBtn,
+.btn:focus .iconBtn {
+  fill: var(--btn-unfollow-bg-color);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

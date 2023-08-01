@@ -1,0 +1,13 @@
+.homeBox {
+  text-align: center;
+}
+
+.title {
+  color: var(--img-default-bg);
+  padding-top: 30px;
+}
+
+.image {
+  margin: 0 auto;
+  width: 500px;
+}

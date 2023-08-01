@@ -1,0 +1,14 @@
+.buttonLoad {
+  background-color: var(--img-default-bg);
+  padding: 15px 30px;
+  border-radius: 20px;
+  color: var(--btn-unfollow-bg-color);
+  font-size: 18px;
+  font-weight: 700;
+  transition: background-color 250ms linear;
+}
+
+.buttonLoad:hover,
+.buttonLoad:focus {
+  background-color: var(--btn-follow-bg-color);
+}
