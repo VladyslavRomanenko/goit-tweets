@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import css from "./NavBar.module.css";
 
 const NavBar = () => {
-  const nav = [
+  const navigation = [
     { to: "/", key: "Home", Icon: AiOutlineHome },
     { to: "/tweets", key: "Tweets", Icon: LiaUserFriendsSolid },
   ];
@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <nav className={css.navigation}>
       <ul className={css.navigationList}>
-        {nav.map(({ key, to, Icon }) => (
+        {navigation.map(({ key, to, Icon }) => (
           <li key={key}>
             <NavLink to={to} className={css.link}>
               <Icon className={css.navigationIcon} />
