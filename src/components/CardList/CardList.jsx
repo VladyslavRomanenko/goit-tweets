@@ -3,12 +3,14 @@ import Card from "../Card/Card";
 import css from "./CardList.module.css";
 import LoadMore from "../LoadMore/LoadMore";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUsers } from "../../redux/users/selectors";
+import { selectLoading, selectUsers } from "../../redux/users/selectors";
 import { getUsersThunk } from "../../redux/users/operations";
+import { Loader } from "../Loader/Loader";
 
 const CardList = () => {
   const users = useSelector(selectUsers);
   const [count, setCount] = useState(3);
+  const loading = useSelector(selectLoading);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,12 +25,16 @@ const CardList = () => {
 
   return (
     <>
-      <ul className={css.cardsList}>
-        {users.length > 0 &&
-          users.map((user) => {
+      {loading ? (
+        <Loader />
+      ) : (
+        <ul className={css.cardsList}>
+          {users.map((user) => {
             return <Card key={user.id} {...user} />;
           })}
-      </ul>
+        </ul>
+      )}
+
       {showLoadMoreBtn && <LoadMore onClick={handleLoadMore} />}
     </>
   );
