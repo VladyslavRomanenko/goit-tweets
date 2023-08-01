@@ -24,14 +24,31 @@
 }
 
 .boyImage {
-  width: 80px;
-  height: 80px;
-  z-index: 2;
+  width: 70px;
+  height: 70px;
+  z-index: 0;
+  border-radius: 50px;
+}
+
+.ellipse {
+  position: absolute;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  top: 186px;
 }
 
 .rectangle {
   position: absolute;
   width: 380px;
+  top: 228px;
+}
+
+.userName {
+  margin-top: 26px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--btn-unfollow-bg-color);
 }
 
 .tweets {
@@ -39,7 +56,7 @@
   font-weight: 500;
   text-transform: uppercase;
   color: var(--btn-unfollow-bg-color);
-  margin: 26px 0px 16px;
+  margin: 16px 0px;
 }
 
 .followers {

@@ -31,9 +31,10 @@ export const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getUsersThunk.fulfilled, (state) => {
+      .addCase(getUsersThunk.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.error = null;
+        state.items = payload;
       })
       .addCase(updateUserThunk.fulfilled, (state, { payload }) => {
         const index = state.items.findIndex((el) => el.id === payload);
