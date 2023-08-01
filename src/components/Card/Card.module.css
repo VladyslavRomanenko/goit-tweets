@@ -78,3 +78,15 @@
   background-color: var(--btn-unfollow-bg-color);
   cursor: pointer;
 }
+
+.btnFollowing {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--landing-button-text-color);
+  padding: 14px 28px;
+  border-radius: 10px;
+  width: 196px;
+  background-color: var(--btn-follow-bg-color);
+  cursor: pointer;
+}

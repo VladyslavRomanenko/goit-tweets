@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import icon from "../../images/icons.svg";
 import boy from "../../images/boy.png";
 import tweetsPicture from "../../images/tweets.png";
@@ -8,30 +8,27 @@ import css from "./Card.module.css";
 import { useDispatch } from "react-redux";
 import { updateUserThunk } from "../../redux/users/operations";
 
-function formatNumber(number) {
-  const string = String(number).replace(/^0+/, "");
-  if (string.length > 6) {
-    const truncatedString = string.slice(0, 6);
-    const integerPart = truncatedString.slice(0, -3);
-    const decimalPart = truncatedString.slice(-3);
-    return `${integerPart},${decimalPart}`;
-  }
-  return string;
-}
-console.log(formatNumber(1005002343));
+// function formatNumber(number) {
+//   const string = String(number).replace(/^0+/, "");
+//   if (string.length > 6) {
+//     const truncatedString = string.slice(0, 6);
+//     const integerPart = truncatedString.slice(0, -3);
+//     const decimalPart = truncatedString.slice(-3);
+//     return `${integerPart},${decimalPart}`;
+//   }
+//   return string;
+// }
 
 const Card = ({ avatar, user, followers, id, isFollow, tweets }) => {
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const handleFollow = () => {
     dispatch(
       updateUserThunk({
         id,
         isFollow: !isFollow,
-        followers: !isFollow ? followers - 1 : followers + 1,
+        followers: isFollow ? followers - 1 : followers + 1,
       })
     );
-    setLoading(true);
   };
 
   return (
@@ -46,15 +43,14 @@ const Card = ({ avatar, user, followers, id, isFollow, tweets }) => {
       <img src={avatar ? avatar : boy} alt="avatar" className={css.boyImage} />
       <p className={css.userName}>{user}</p>
       <p className={css.tweets}>{tweets} Tweets</p>
-      <p className={css.followers}>{formatNumber(followers)} followers</p>
+      {/* <p className={css.followers}>{formatNumber(followers)} followers</p> */}
+      <p className={css.followers}>{followers} followers</p>
       <button
-        className={css.btnFollow}
+        className={isFollow ? `${css.btnFollowing}` : `${css.btnFollow}`}
         type="button"
-        disabled={loading}
-        status={isFollow}
         onClick={handleFollow}
       >
-        Follow
+        {isFollow ? "Following" : "Follow"}
       </button>
     </li>
   );

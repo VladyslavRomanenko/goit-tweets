@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getUsersThunk, updateUserThunk } from "./operations";
-// import { updateUser } from "../../service/api";
 
 const initialState = {
   items: [],
-  page: 0,
+  page: 1,
   loading: false,
   error: null,
 };
@@ -21,14 +20,7 @@ const rejected = (state, { payload }) => {
 export const userSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {
-    nextPage: (state) => {
-      state.page = state.page + 1;
-    },
-    resetPage: (state) => {
-      state.page = 0;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getUsersThunk.fulfilled, (state, { payload }) => {
@@ -37,8 +29,9 @@ export const userSlice = createSlice({
         state.items = payload;
       })
       .addCase(updateUserThunk.fulfilled, (state, { payload }) => {
-        const index = state.items.findIndex((el) => el.id === payload);
-        state.items.splice(index, 1);
+        state.items = state.items.map((e) =>
+          e.id === payload.id ? payload : e
+        );
         state.loading = false;
         state.error = null;
       })
@@ -47,5 +40,4 @@ export const userSlice = createSlice({
   },
 });
 
-export const { nextPage, resetPage } = userSlice.actions;
 export const userReducer = userSlice.reducer;
