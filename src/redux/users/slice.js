@@ -6,6 +6,7 @@ const initialState = {
   page: 1,
   loading: false,
   error: null,
+  filter: "all",
 };
 
 const pending = (state) => {
@@ -20,7 +21,11 @@ const rejected = (state, { payload }) => {
 export const userSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {},
+  reducers: {
+    updateFilter: (state, { payload }) => {
+      state.filter = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getUsersThunk.fulfilled, (state, { payload }) => {
@@ -40,4 +45,5 @@ export const userSlice = createSlice({
   },
 });
 
+export const { updateFilter } = userSlice.actions;
 export const userReducer = userSlice.reducer;
