@@ -10,6 +10,7 @@ import {
 } from "../../redux/users/selectors";
 import { getUsersThunk } from "../../redux/users/operations";
 import { Loader } from "../Loader/Loader";
+import NoFound from "../NoFound/NoFound";
 
 const CardList = () => {
   let users = useSelector(selectUsers);
@@ -44,7 +45,7 @@ const CardList = () => {
           })}
         </ul>
       )}
-
+      {users.length === 0 && <NoFound />}
       {showLoadMoreBtn && <LoadMore onClick={handleLoadMore} />}
     </>
   );

@@ -7,6 +7,7 @@ import ellipse from "../../images/ellipse.png";
 import css from "./Card.module.css";
 import { useDispatch } from "react-redux";
 import { updateUserThunk } from "../../redux/users/operations";
+import PropTypes from "prop-types";
 
 function formatNumber(number) {
   let numberString = String(number);
@@ -50,6 +51,15 @@ const Card = ({ avatar, user, followers, id, isFollow, tweets }) => {
       </button>
     </li>
   );
+};
+
+Card.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  followers: PropTypes.number,
+  id: PropTypes.string,
+  isFollow: PropTypes.bool,
+  tweets: PropTypes.number,
 };
 
 export default Card;
