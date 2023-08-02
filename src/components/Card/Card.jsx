@@ -8,16 +8,13 @@ import css from "./Card.module.css";
 import { useDispatch } from "react-redux";
 import { updateUserThunk } from "../../redux/users/operations";
 
-// function formatNumber(number) {
-//   const string = String(number).replace(/^0+/, "");
-//   if (string.length > 6) {
-//     const truncatedString = string.slice(0, 6);
-//     const integerPart = truncatedString.slice(0, -3);
-//     const decimalPart = truncatedString.slice(-3);
-//     return `${integerPart},${decimalPart}`;
-//   }
-//   return string;
-// }
+function formatNumber(number) {
+  let numberString = String(number);
+  let firstPart = numberString.slice(0, 2);
+  let secondPart = numberString.slice(2);
+  const format = `${firstPart},${secondPart}`;
+  return format;
+}
 
 const Card = ({ avatar, user, followers, id, isFollow, tweets }) => {
   const dispatch = useDispatch();
@@ -43,8 +40,7 @@ const Card = ({ avatar, user, followers, id, isFollow, tweets }) => {
       <img src={avatar ? avatar : boy} alt="avatar" className={css.boyImage} />
       <p className={css.userName}>{user}</p>
       <p className={css.tweets}>{tweets} Tweets</p>
-      {/* <p className={css.followers}>{formatNumber(followers)} followers</p> */}
-      <p className={css.followers}>{followers} followers</p>
+      <p className={css.followers}>{formatNumber(followers)} followers</p>
       <button
         className={isFollow ? `${css.btnFollowing}` : `${css.btnFollow}`}
         type="button"
